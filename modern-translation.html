@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الترجمة الحديثة والذكاء الاصطناعي | Companion Studio</title>
+    <meta name="description" content="اكتشف فلسفة الترجمة الحديثة مع Companion Studio. توافق كامل مع Trados و memoQ واستثمار حقيقي لقوة الذكاء الاصطناعي كشريك ممكّن للمترجم البشري وليس بديلاً عنه.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-light: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: rgba(99, 102, 241, 0.08);
+            --border-hover: rgba(99, 102, 241, 0.18);
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --primary-light: #e0e7ff;
+            --purple-grad: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --light-grad: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            
+            --green: #10B981;
+            --yellow: #F59E0B;
+            
+            --font-ar: 'Cairo', sans-serif;
+            --font-en: 'Outfit', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            background-image: var(--light-grad);
+            color: var(--text-primary);
+            font-family: var(--font-ar);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Nav Grid Overlay */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(99, 102, 241, 0.04) 1.5px, transparent 1.5px);
+            background-size: 32px 32px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Header Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 800;
+            font-family: var(--font-en);
+            letter-spacing: -0.03em;
+        }
+
+        .accent-text {
+            background: var(--purple-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn-sm {
+            background: var(--purple-grad);
+            color: white;
+            text-decoration: none;
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-btn-sm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.35);
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 1100px;
+            margin: 120px auto 80px auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero section */
+        .hero-section {
+            text-align: center;
+            padding: 40px 0 60px 0;
+        }
+
+        .badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.15);
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .main-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* Grid layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .main-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Modern light cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.05), 0 3px 10px rgba(99, 102, 241, 0.02);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .card-text {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        /* Visual Steps */
+        .steps-container {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--bg-light);
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--purple-grad);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: var(--font-en);
+            font-size: 0.9rem;
+        }
+
+        .step-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Compatibility Logos Banner */
+        .compatibility-banner {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+        }
+
+        .compat-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-en);
+            font-weight: 700;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .compat-logo i {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        /* Large banner quote */
+        .quote-banner {
+            background: var(--purple-grad);
+            color: white;
+            border-radius: 24px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 60px;
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Flex comparison blocks */
+        .compare-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .compare-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .compare-box {
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+        }
+
+        .compare-box.bad {
+            border-left: 4px solid var(--text-muted);
+        }
+
+        .compare-box.good {
+            border-left: 4px solid var(--green);
+            background: linear-gradient(to bottom, #ffffff, rgba(16, 185, 129, 0.01));
+        }
+
+        .compare-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .compare-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .compare-list li {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .compare-list li i {
+            font-size: 0.85rem;
+        }
+
+        .compare-list li i.fa-xmark { color: #f43f5e; }
+        .compare-list li i.fa-check { color: var(--green); }
+
+        /* Action bar buttons */
+        .actions-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 60px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--purple-grad);
+            color: white;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.25);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer styling */
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.5);
+            margin-top: 80px;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-overlay"></div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <span class="logo-text">Companion <span class="accent-text">Studio</span></span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html#features" class="nav-link">المميزات</a>
+                <a href="index.html#rtl-engine" class="nav-link">محرك الاتجاهات</a>
+                <a href="index.html#roi-calculator" class="nav-link">حاسبة الأرباح</a>
+                <a href="index.html#licensing" class="nav-link">التنشيط والترخيص</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="index.html" class="cta-btn-sm">العودة للرئيسية</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="badge"><i class="fa-solid fa-sparkles"></i> الترجمة كما يجب أن تكون</div>
+            <h1 class="main-title">
+                الترجمة الحديثة:<br>
+                <span class="accent-text">دمج الجهد البشري الإبداعي بجودة الذكاء الاصطناعي</span>
+            </h1>
+            <p class="main-subtitle">
+                لستَ وحدك في عصر الذكاء الاصطناعي. التكنولوجيا لم تأتِ لتستبدلك، بل لتصنع منك مترجماً فائق القدرة. Companion Studio هو رفيقك الموثوق الذي يختصر وقتك ويترك لك الإبداع واللمسة البشرية التي لا تُعوّض!
+            </p>
+        </section>
+
+        <!-- App Screenshot -->
+        <div style="text-align: center; margin-bottom: 60px;">
+            <div class="card" style="display: inline-block; padding: 10px; border-radius: 12px; box-shadow: 0 10px 40px rgba(99, 102, 241, 0.15);">
+                <img src="Companion_VOpxbNK9AX.png" alt="واجهة برنامج Companion Studio" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);">
+            </div>
+        </div>
+
+        <!-- The core philosophy section -->
+        <section style="margin-bottom: 60px;">
+            <div class="card" style="border-right: 5px solid var(--primary); background: linear-gradient(to left, #ffffff, rgba(99, 102, 241, 0.01));">
+                <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 16px;">
+                    <div class="card-icon" style="margin-bottom: 0;"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h2 class="card-title" style="margin-bottom: 0;">الفلسفة الأساسية: الرفيق الحقيقي للمترجم العربي</h2>
+                </div>
+                <p class="card-text" style="font-size: 1.1rem; line-height: 1.8;">
+                    نؤمن إيماناً راسخاً بأن <strong>المترجم البشري هو القلب النابض لكل نص مترجم</strong>. الذكاء الاصطناعي ليس بديلاً عنك، ولكنه رفيقك المخلص (Companion) الذي يقف بجانبك في ساحة العمل اليومي. إنه يدمج جهدك وخبرتك مع سرعة وجودة التقنيات العصبية الحديثة ليمنحك قوة إنتاجية مذهلة دون التخلي عن روح النص وجمال الصياغة التي تميزك.
+                </p>
+            </div>
+        </section>
+
+        <!-- Grid 2: Core benefits & Compatibility -->
+        <div class="grid-2">
+            <!-- Compatibility Card -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-rotate"></i></div>
+                <h2 class="card-title">تكامل تام مع بيئات العمل الشهيرة (Trados & memoQ)</h2>
+                <p class="card-text">
+                    خبرتك المتراكمة لسنوات هي كنزك الحقيقي. يدعم برنامج **Companion Studio** بالكامل صيغة تبادل ملفات الترجمة القياسية والموحدة **TMX**، مما يتيح لك نقل أصول ترجمتك وقواميسك بضغطة زر واحدة.
+                </p>
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <div class="step-text">تصدير ذاكرة الترجمة كـ TMX من ترادوس أو ميموكيو.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <div class="step-text">استيراد الملف مباشرة في Companion بنقرة زر واحدة.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <div class="step-text">البدء في الترجمة مع توفير 45% من الوقت المجهد.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Partner Card -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                <h2 class="card-title">الذكاء الاصطناعي كشريك ممكّن في خدمتك</h2>
+                <p class="card-text">
+                    نحن لا نترك الذكاء الاصطناعي يترجم عشوائياً. في Companion Studio، يقف الذكاء الاصطناعي خلف ذاكرة ترجمتك المحلية وقاموسك الخاص. الأولوية دائماً لذاكرتك ومصطلحاتك التي اعتمدتها بنفسك، وعند غياب التطابقات، يتدخل المساعد الذكي ليقترح عليك صياغات احترافية، مما يوفر 60% من جهد الكتابة اليدوية.
+                </p>
+            </div>
+        </div>
+
+        <!-- Four Smart Strategies -->
+        <section style="margin-top: 60px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="badge"><i class="fa-solid fa-bolt"></i> هندسة ترجمة عبقرية</span>
+                <h2 class="card-title" style="font-size: 2rem;">استراتيجيات الذكاء الاصطناعي الأربع الحصرية لـ Companion</h2>
+                <p class="card-text" style="max-width: 700px; margin: 0 auto;">كيف نجعل محركات الذكاء الاصطناعي تطيع أسلوبك وتلتزم بدقة مصطلحاتك بدلاً من الترجمات العشوائية؟</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                <!-- Strategy 1 -->
+                <div class="card">
+                    <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 12px;">
+                        <span class="step-num">1</span>
+                        <h3 class="card-title" style="margin-bottom: 0; font-size: 1.2rem;">تقييد المصطلحات (Termbase Restriction)</h3>
+                    </div>
+                    <p class="card-text">
+                        الذكاء الاصطناعي قد يترجم الكلمة بعدة مرادفات مشتتة. عند إضافة مصطلحاتك الحساسة إلى القاموس (Termbase)، يقوم البرنامج تلقائياً بحقنها كقيود صارمة داخل نموذج الذكاء الاصطناعي لإجباره على توحيدها وتطبيقها بدقة بالغة في كامل المستند.
+                    </p>
+                </div>
+
+                <!-- Strategy 2 -->
+                <div class="card">
+                    <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 12px;">
+                        <span class="step-num">2</span>
+                        <h3 class="card-title" style="margin-bottom: 0; font-size: 1.2rem;">التعلم التكيفي الفوري (Post-Editing Adaptive Learning)</h3>
+                    </div>
+                    <p class="card-text">
+                        يتعلم البرنامج أسلوبك الفردي في الوقت الفعلي! مع كل طلب ترجمة جديد، يرسل البرنامج آخر 10 تعديلات يدوية قمت بها (Human Post-Edits) ليتعلم الذكاء الاصطناعي نبرتك وصياغتك الخاصة ويحاكيها بدقة مذهلة في الجمل التالية تلقائياً.
+                    </p>
+                </div>
+
+                <!-- Strategy 3 -->
+                <div class="card">
+                    <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 12px;">
+                        <span class="step-num">3</span>
+                        <h3 class="card-title" style="margin-bottom: 0; font-size: 1.2rem;">الترجمة السياقية المحيطة (Context-Awareness)</h3>
+                    </div>
+                    <p class="card-text">
+                        الترجمة التقليدية تترجم الجمل بشكل منفصل مما يسبب تفككاً لغوياً. يرسل Companion تلقائياً الجمل السابقة واللاحقة للنموذج، مما يمنحه وعياً كاملاً بالسياق العام للمستند ويمنع الترجمات الحرفية الخاطئة للكلمات متعددة المعاني.
+                    </p>
+                </div>
+
+                <!-- Strategy 4 -->
+                <div class="card">
+                    <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 12px;">
+                        <span class="step-num">4</span>
+                        <h3 class="card-title" style="margin-bottom: 0; font-size: 1.2rem;">التحكم الكامل بالنبرة والأسلوب (Tone Customization)</h3>
+                    </div>
+                    <p class="card-text">
+                        حدد نبرة الخطاب المفضلة للمستند من الإعدادات (رسمي، عامي، إبداعي، تقني، إلخ). سيقوم رفيقك الذكي بتشكيل الترجمات بما يتناسب مع جمهورك المستهدف بدقة متناهية، من العبارات القانونية الجافة إلى الصياغات الإعلانية البراقة.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compatibility logos -->
+        <div class="compatibility-banner">
+            <div class="compat-logo"><i class="fa-solid fa-cloud-arrow-up"></i> SDL Trados Compatible</div>
+            <div class="compat-logo"><i class="fa-solid fa-arrows-spin"></i> memoQ Integration</div>
+            <div class="compat-logo"><i class="fa-solid fa-file-code"></i> Standard TMX 1.4b</div>
+            <div class="compat-logo"><i class="fa-solid fa-circle-check"></i> Wordfast Compatible</div>
+        </div>
+
+        <!-- Key selling arguments: Why buy Companion Studio? -->
+        <section style="margin-top: 60px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="badge"><i class="fa-solid fa-dollar-sign"></i> قيمة استثنائية للاستثمار</span>
+                <h2 class="card-title" style="font-size: 2rem;">لماذا يجب أن تشتري Companion Studio اليوم؟</h2>
+                <p class="card-text" style="max-width: 700px; margin: 0 auto;">احصل على الأداة التي تحترم وقتك ومجهودك، وتوفر لك كل ما تحتاجه للريادة المهنية بأعلى عائد مالي.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 20px auto;"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 class="card-title">خصوصية وأمان 100% (أوفلاين)</h3>
+                    <p class="card-text">
+                        تراجمك وملفات عملائك السرية تبقى على جهازك داخل قاعدة بيانات SQLite مشفرة ومحمية محلياً 100%. التزام كامل باتفاقيات عدم الإفصاح (NDA) ودون أي تسريبات سحابية.
+                    </p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 20px auto;"><i class="fa-solid fa-infinity"></i></div>
+                    <h3 class="card-title">ترخيص مدى الحياة بدون اشتراك</h3>
+                    <p class="card-text">
+                        وداعاً للاشتراكات الشهرية المستنزفة. ادفع مرة واحدة فقط، واحصل على رخصتك الرقمية الشخصية (.lic) المشفرة بـ RSA-2048 لتعمل للأبد وبكل استقرار.
+                    </p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 20px auto;"><i class="fa-solid fa-gauge-high"></i></div>
+                    <h3 class="card-title">مضاعفة إنتاجية الكلمات يومياً</h3>
+                    <p class="card-text">
+                        بفضل الذاكرة السياقية 101%، ومحرك التنسيق العربي RTL فائق التطور، والاختصارات القابلة للتخصيص بالكامل، ستنجز مهام الترجمة بسرعة مضاعفة وبأقل جهد بدني وذهني.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Banner -->
+        <div class="quote-banner">
+            <div class="quote-text">
+                "الذكاء الاصطناعي لن يستبدل المترجم البشري أبداً... ولكن المترجم الذي يستخدم الذكاء الاصطناعي كـ 'رفيق موثوق' سيستبدل بلا شك المترجم الذي لا يستخدمه."
+            </div>
+            <div class="quote-author">— فلسفة صناعة الترجمة الاحترافية الحديثة | Companion Studio</div>
+        </div>
+
+        <!-- Section: Traditional vs Modern -->
+        <section style="margin-top: 60px;">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 class="card-title" style="font-size: 1.8rem;">المقارنة الواقعية: كيف تغير أسلوب عملك؟</h2>
+                <p class="card-text" style="max-width: 600px; margin: 0 auto;">تأمل كيف ينعكس تبني التكنولوجيا والترجمة الحديثة بشكل غير مباشر على جودة حياتك المهنية ومستواك المعيشي.</p>
+            </div>
+
+            <div class="compare-row">
+                <!-- Old Way -->
+                <div class="compare-box bad">
+                    <h3 class="compare-title"><i class="fa-solid fa-triangle-exclamation text-yellow"></i> المترجم القلق (الطرق القديمة)</h3>
+                    <ul class="compare-list">
+                        <li><i class="fa-solid fa-xmark"></i> كتابة كل جملة يدوياً مراراً وتكراراً وضياع الساعات في البحث المكرر.</li>
+                        <li><i class="fa-solid fa-xmark"></i> القلق الدائم من سيطرة الذكاء الاصطناعي وتأثيره على دخل المهنة.</li>
+                        <li><i class="fa-solid fa-xmark"></i> العزلة عن الأدوات الحديثة مما يزيد من إرهاق التفكير اليدوي.</li>
+                        <li><i class="fa-solid fa-xmark"></i> محدودية إنتاجية الكلمات يومياً (أرباح محدودة بجهد بدني كبير).</li>
+                    </ul>
+                </div>
+
+                <!-- New Way -->
+                <div class="compare-box good">
+                    <h3 class="compare-title" style="color: var(--green);"><i class="fa-solid fa-circle-check"></i> المترجم الذكي المتمكن (Companion Studio)</h3>
+                    <ul class="compare-list">
+                        <li><i class="fa-solid fa-check"></i> استثمار الذكاء الاصطناعي كـ "رفيق ذكي سريع" لكتابة المسودات فوراً.</li>
+                        <li><i class="fa-solid fa-check"></i> التركيز الكامل على جودة الصياغة الإبداعية وتعديل المخرجات باحترافية.</li>
+                        <li><i class="fa-solid fa-check"></i> استيراد تراثك وتراكماتك من Trados/memoQ والعمل محلياً بخصوصية 100%.</li>
+                        <li><i class="fa-solid fa-check"></i> مضاعفة الإنتاجية اليومية للكلمات (أرباح أعلى مع راحة ذهنية أكبر).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final call to action -->
+        <div class="actions-group">
+            <a href="https://wa.me/201012548655" target="_blank" class="btn btn-primary">
+                <i class="fa-brands fa-whatsapp"></i> اشترك واحصل على رخصتك الآن
+            </a>
+            <a href="index.html" class="btn btn-secondary">العودة للصفحة الرئيسية</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Companion Studio. جميع الحقوق محفوظة للمترجمين المحترفين الباحثين عن التميز المهني.</p>
+    </footer>
+</body>
+</html>
